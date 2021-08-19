@@ -19,7 +19,7 @@ public class Vehicle {
 		
 	public Vehicle() {
 		super();
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public Vehicle(Long id, String brand, String name, String registration, boolean owned) {
