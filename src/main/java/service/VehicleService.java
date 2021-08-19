@@ -17,7 +17,7 @@ public class VehicleService {
 		this.database = database;
 	}
 
-	public void createVehicle(Vehicle vehicle ) {
+	public Vehicle createVehicle(Vehicle vehicle ) {
 		return this.database.save(vehicle);
 	}
 	
@@ -30,12 +30,13 @@ public class VehicleService {
 
 	public Vehicle updateVehicle(Long id, Vehicle vehicle) {
 		
-		return null;
+		
+		return updateVehicle(null, null);
 	}
 
 	public void deleteVehicle(Long id) {
 		
-		return this.database.deleteById();
+		this.database.deleteById(id);
 	}
 
 	
