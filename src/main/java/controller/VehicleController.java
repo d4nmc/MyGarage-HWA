@@ -52,10 +52,11 @@ public class VehicleController {
 		
 		this.service.deleteVehicle(id);
 		
-		return null;
+		return new ResponseEntity<String>("Vehicle id: " + id + " has been deleted", HttpStatus.OK);
 		
 	}
 	
+	// Update method to complete after lunch break and problem solving, awaiting response from QA
 	
 	
 }
