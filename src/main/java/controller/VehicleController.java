@@ -1,10 +1,12 @@
 package controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController	
+@CrossOrigin
 public class VehicleController {
 	
-	// probably broken already- pondering a restart FFS	
+	
 
 }
