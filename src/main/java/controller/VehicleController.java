@@ -22,7 +22,7 @@ import service.VehicleService;
 public class VehicleController {
 
 	private VehicleService service;
-	
+
 	@Autowired
 	public VehicleController(VehicleService service) {
 		super();
@@ -36,8 +36,7 @@ public class VehicleController {
 
 	@PostMapping("/add")
 	public ResponseEntity<String> createVehicle(@RequestBody Vehicle vehicle) {
-
-		// this.service.createVehicle(vehicle);
+		this.service.createVehicle(vehicle);
 		return new ResponseEntity<String>(
 				"Vehicle name: " + vehicle.getBrand() + vehicle.getName() + " added to garage list",
 				HttpStatus.CREATED);
@@ -52,12 +51,10 @@ public class VehicleController {
 	}
 
 	@PatchMapping("/updateVehicle/{id}")
-			public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id,
-					@RequestBody Vehicle vehicle) {
-				
-				return new ResponseEntity<Vehicle> (this.service.updateVehicle(id, vehicle), 
-						HttpStatus.ACCEPTED);
-				
+	public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id, @RequestBody Vehicle vehicle) {
+
+		return new ResponseEntity<Vehicle>(this.service.updateVehicle(id, vehicle), HttpStatus.ACCEPTED);
+
 	}
 
 	@DeleteMapping("/delete/{id}")

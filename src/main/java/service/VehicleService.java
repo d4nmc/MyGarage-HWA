@@ -4,33 +4,41 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import database.VehicleDatabase;
 import model.Vehicle;
-import repo.VehicleRepo;
 
 @Service
 public class VehicleService {
 	
-	private VehicleRepo repo;
+	private VehicleDatabase database;
 	
-	public VehicleService(VehicleRepo repo) {
+	public VehicleService(VehicleDatabase database) {
 		super();
-		this.repo = repo;
+		this.database = database;
 	}
 
+	public void createVehicle(Vehicle vehicle ) {
+		return this.database.save(vehicle);
+	}
+	
+		
 	public List<Vehicle> getAllVehicles() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.database.findAll();
+		
 	}
 
 	public Vehicle updateVehicle(Long id, Vehicle vehicle) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public void deleteVehicle(Long id) {
-		// TODO Auto-generated method stub
 		
+		return this.database.deleteById();
 	}
+
+	
 
 }
 
