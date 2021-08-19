@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -34,6 +36,10 @@ public class VehicleController {
 		return new ResponseEntity<String>("Vehicle name: " + vehicle.getBrand() + vehicle.getName() + " added to garage list", HttpStatus.CREATED);
 	}
 
-	
+	public ResponseEntity<List<Vehicle>> getAllVehicles() {
+		
+		
+		
+	}
 	
 }
