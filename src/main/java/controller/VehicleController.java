@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -39,24 +40,31 @@ public class VehicleController {
 				"Vehicle name: " + vehicle.getBrand() + vehicle.getName() + " added to garage list",
 				HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/getAll")
 	public ResponseEntity<List<Vehicle>> getAllVehicles() {
 
 		List<Vehicle> vehicleList = this.service.getAllVehicles();
 		return ResponseEntity.ok(vehicleList);
 
-}
-	@DeleteMapping("/delete/{id}")
-	public ResponseEntity<String> deleteVehicle(@PathVariable Long id){
-		
-		this.service.deleteVehicle(id);
-		
-		return new ResponseEntity<String>("Vehicle id: " + id + " has been deleted", HttpStatus.OK);
-		
 	}
-	
-	// Update method to complete after lunch break and problem solving, awaiting response from QA
-	
-	
+
+	@PatchMapping("/updateVehicle/{id}")
+			public ResponseEntity<Vehicle> updateVehicle(@PathVariable Long id,
+					@RequestBody Vehicle vehicle) {
+				
+				return new ResponseEntity<Vehicle> (this.service.updateVehicle(id, vehicle), 
+						HttpStatus.ACCEPTED);
+				
+	}
+
+	@DeleteMapping("/delete/{id}")
+	public ResponseEntity<String> deleteVehicle(@PathVariable Long id) {
+
+		this.service.deleteVehicle(id);
+
+		return new ResponseEntity<String>("Vehicle id: " + id + " has been deleted", HttpStatus.OK);
+
+	}
+
 }
